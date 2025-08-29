@@ -171,24 +171,46 @@ body {
     object-fit: cover;
     border-radius: 6px;
 }
-.facebook-btn {
+/* Botão flutuante do Facebook */
+.fb-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  right: 18px;
+  bottom: 18px;                     /* ajuste aqui se tiver outro botão no canto */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   background: #1877f2;
   color: #fff;
-  padding: 12px 16px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 9999;                    /* fica acima de tudo */
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  cursor: pointer;
 }
 
-.facebook-btn:hover {
+.fb-float:hover { 
   background: #145dbf;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.30);
 }
+
+.fb-float:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.fb-float svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* Ajuste mobile */
+@media (max-width: 560px) {
+  .fb-float { right: 14px; bottom: 14px; width: 52px; height: 52px; }
+  .fb-float svg { width: 24px; height: 24px; }
+}
+
